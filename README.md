@@ -56,35 +56,44 @@ The system helps candidates **practice behavioral interviews** in a realistic, v
 
 ---
 
-##  How to Run
-1. Clone this repo and install dependencies:  
-   ```bash
-   pip install -r requirements.txt
+## How to Run (Google Colab)
+
+1. Open the project notebook in **Google Colab**.  
+
+2. Install dependencies (already included in the notebook setup):  
+   ```python
+   !pip install langchain langchain-openai openai langchain_community gradio groq numpy soundfile python-dotenv
    ```  
 
-2. Set up your API keys in a `.env` file:  
-   ```
-   OPENAI_API_KEY=your_key
-   GROQ_API_KEY=your_key
+3. Store your API keys securely in **Colab’s Key Management** section:  
+   - Go to **Colab → Tools → Secrets**.  
+   - Add the following keys:  
+     - `OPENAI_API_KEY`  
+     - `GROQ_API_KEY`  
+
+4. Access the keys inside the notebook:  
+   ```python
+   from google.colab import userdata
+   openai.api_key = userdata.get("OPENAI_API_KEY")
+   groq_api_key = userdata.get("GROQ_API_KEY")
    ```  
 
-3. Run the notebook or Gradio app:  
-   ```bash
-   jupyter notebook Mock_interview_final_changed_to_whisperAI.ipynb
-   ```  
-   or  
-   ```bash
-   python app.py
-   ```  
+5. Run all cells in the notebook to launch the AI-powered mock interview system.  
 
-4. Start your mock interview by pasting a job link in the UI.  
+6. Use the **Gradio interface** to start a mock interview by pasting a job posting link.  
 
 ---
 
-## 📷 Screenshots
-- Flow diagram of system components  
-- Key architecture (scraping, LangChain, STT/TTS, UI)  
-- Evaluation sample with **score breakdown**  
+## Screenshots
+- Flow diagram of system components
+  <img width="1433" height="806" alt="Screenshot 2025-09-19 at 4 34 46 PM" src="https://github.com/user-attachments/assets/111c913a-0888-400b-b66f-27710df9eb28" />
+
+- Key architecture (scraping, LangChain, STT/TTS, UI)
+   <img width="1433" height="806" alt="Screenshot 2025-09-19 at 6 31 58 PM" src="https://github.com/user-attachments/assets/49223429-2b4c-41e7-961d-12946b63e64a" />
+
+- Evaluation sample with **score breakdown**
+  <img width="1788" height="935" alt="Screenshot 2025-09-19 at 6 42 01 PM" src="https://github.com/user-attachments/assets/1abd80c7-c4f6-466f-b730-ad2f517f3203" />
+
 
 ---
 
